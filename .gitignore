@@ -38,7 +38,6 @@ node_modules
 *.map
 *.dll
 *.exe
-bin/
 obj/
 _Releases/
 *.ldb
