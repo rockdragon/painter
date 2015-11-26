@@ -2,24 +2,44 @@
 <html>
 <head>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css'/>
-    <script type="text/javascript" src="/javascripts/jquery.min.js"></script>
+    <link rel='stylesheet' href='/css/bootstrap.min.css'/>
+    <link rel='stylesheet' href='/css/bootstrap-theme.min.css'/>
+    <link rel='stylesheet' href='/css/style.css'/>
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/socket.io/socket.io.js"></script>
 </head>
 <body>
-<div>
-    <fieldset>
-        <legend>Log in</legend>
-        <ul>
-            <li><label for="nick_name">Nickname</label> <input type="text" id="nick_name">
-            </li>
-            <li>
-                <button id="submit">submit</button>
-            </li>
-        </ul>
-    </fieldset>
 
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-4">
+                </div>
+                <div class="col-md-4">
+                    <h3>
+                        please naming:
+                    </h3>
+
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">
+                            Nickname:
+                        </label>
+                        <input type="text" class="form-control" id="nick_name"/>
+                    </div>
+                    <button type="button" class="btn btn-default" id="submit">
+                        Submit
+                    </button>
+
+                </div>
+                <div class="col-md-4">
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
 </body>
 <script>
     $(document).ready(function () {
