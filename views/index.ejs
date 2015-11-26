@@ -18,9 +18,9 @@
         var canvas = $("#canvas");
         var clearCanvasSimple = $("#clearCanvasSimple");
         var context = canvas[0].getContext("2d");
-        var clickX = new Array();
-        var clickY = new Array();
-        var clickDrag = new Array();
+        var clickX = [];
+        var clickY = [];
+        var clickDrag = [];
         var paint;
 
         function addClick(x, y, dragging) {
@@ -50,27 +50,27 @@
         }
 
         canvas.mousedown(function (e) {
-            var mouseX = e.pageX - this.offsetLeft;
-            var mouseY = e.pageY - this.offsetTop;
-
             paint = true;
             addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop);
             redraw();
-        });
-
-        canvas.mousemove(function (e) {
+        }).mousemove(function (e) {
             if (paint) {
                 addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop, true);
                 redraw();
             }
-        });
-
-        canvas.mouseleave(function (e) {
+        }).mouseup(function() {
+            if (paint) {
+                paint = false;
+            }
+        }).mouseleave(function () {
             paint = false;
         });
 
         clearCanvasSimple.click(function () {
             context.clearRect(0, 0, context.canvas.width, context.canvas.height); // Clears the canvas
+            clickX.length = 0;
+            clickY.length = 0;
+            clickDrag.length = 0;
         });
     });
 </script>
